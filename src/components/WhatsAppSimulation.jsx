@@ -74,7 +74,7 @@ export default function WhatsAppSimulation({ onStartMenu }) {
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 flex flex-col relative">
+        <div className="flex-1 flex flex-col relative min-h-0">
           {/* Header */}
           <header className="h-16 bg-[#202c33] px-4 flex items-center justify-between z-10 shadow-md">
             <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ export default function WhatsAppSimulation({ onStartMenu }) {
           {/* Messages Background */}
           <div 
             ref={scrollRef}
-            className="flex-1 overflow-y-auto p-6 flex flex-col gap-2 relative bg-[#0b141a]"
+            className="flex-1 overflow-y-auto p-4 md:p-6 flex flex-col gap-2 relative bg-[#0b141a] min-h-0"
             style={{ 
               backgroundImage: 'url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png")',
               backgroundSize: '400px',
@@ -121,19 +121,19 @@ export default function WhatsAppSimulation({ onStartMenu }) {
                   {msg.type === 'link' ? (
                     <button 
                       onClick={onStartMenu}
-                      className="flex flex-col gap-3 group"
+                      className="flex flex-col gap-3 group w-full"
                     >
-                       <div className="bg-[#111b21] p-3 rounded-sm border border-white/5 flex items-center gap-4 hover:bg-black/40 transition-all">
-                          <div className="w-12 h-12 bg-accent/20 rounded-sm flex items-center justify-center">
-                             <MenuIcon className="w-6 h-6 text-accent" />
+                       <div className="bg-[#111b21] p-2 md:p-3 rounded-sm border border-white/5 flex items-center gap-3 md:gap-4 hover:bg-black/40 transition-all w-full">
+                          <div className="w-10 h-10 md:w-12 md:h-12 bg-accent/20 rounded-sm flex-shrink-0 flex items-center justify-center">
+                             <MenuIcon className="w-5 h-5 md:w-6 md:h-6 text-accent" />
                           </div>
-                          <div className="text-left">
-                             <p className="text-accent font-bold text-xs uppercase tracking-tighter">Rota Quente Cardápio Digital</p>
-                             <p className="text-[10px] text-[#8696a0]">Acesse agora nosso menu premium</p>
+                          <div className="text-left flex-1 min-w-0">
+                             <p className="text-accent font-bold text-[10px] md:text-xs uppercase tracking-tighter truncate">Rota Quente Cardápio</p>
+                             <p className="text-[9px] md:text-[10px] text-[#8696a0] truncate">Menu Premium</p>
                           </div>
-                          <ExternalLink className="w-4 h-4 text-accent ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          <ExternalLink className="w-3 h-3 md:w-4 md:h-4 text-accent ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                        </div>
-                       <span className="text-xs font-bold text-accent uppercase tracking-[0.2em] self-center py-2">{msg.text}</span>
+                       <span className="text-[10px] md:text-xs font-bold text-accent uppercase tracking-[0.2em] self-center py-2">{msg.text}</span>
                     </button>
                   ) : (
                     <>

@@ -145,10 +145,10 @@ export default function App() {
       <SimulationBanner />
       
       {/* Navbar */}
-      <nav className="fixed top-[44px] left-0 right-0 z-50 glass px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Rota Quente" className="h-8 w-auto" />
-          <span className="text-xl font-bold tracking-tighter uppercase text-white">Rota <span className="text-accent">Quente</span></span>
+      <nav className="fixed top-[40px] md:top-[44px] left-0 right-0 z-50 glass px-4 md:px-6 py-2 md:py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2 md:gap-3">
+          <img src="/logo.png" alt="Rota Quente" className="h-6 md:h-8 w-auto" />
+          <span className="text-sm md:text-xl font-bold tracking-tighter uppercase text-white">Rota <span className="text-accent">Quente</span></span>
         </div>
         
         <div className="flex items-center gap-6">
@@ -186,7 +186,7 @@ export default function App() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-4 leading-[0.9] uppercase"
+            className="text-4xl md:text-7xl font-bold tracking-tight mb-4 leading-[0.9] uppercase"
           >
             SABORES QUE <br />
             <span className="text-accent italic">SURPREENDEM.</span>
@@ -248,7 +248,7 @@ export default function App() {
         </section>
 
         {/* Product Grid */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode='popLayout'>
             {PRODUCTS.filter(p => activeCategory === 'all' || p.category === activeCategory).map((product) => (
               <motion.div

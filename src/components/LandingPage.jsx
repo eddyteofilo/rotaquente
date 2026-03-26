@@ -37,10 +37,10 @@ const LandingPage = ({ onStartSimulation }) => {
       </div>
 
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-12 py-4 bg-[#0a0a0b]/85 backdrop-blur-xl border-bottom border-[#1e1e22]">
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Rota Quente" className="h-10 w-auto" />
-          <span className="font-['Syne'] font-extrabold text-xl tracking-tighter text-white">Rota<span className="text-[#f59e0b]">Quente</span></span>
+      <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-4 md:px-12 py-3 md:py-4 bg-[#0a0a0b]/85 backdrop-blur-xl border-bottom border-[#1e1e22]">
+        <div className="flex items-center gap-2 md:gap-3">
+          <img src="/logo.png" alt="Rota Quente" className="h-7 md:h-10 w-auto" />
+          <span className="font-['Syne'] font-extrabold text-base md:text-xl tracking-tighter text-white">Rota<span className="text-[#f59e0b]">Quente</span></span>
         </div>
         <div className="hidden md:flex items-center gap-9 text-sm text-[#7a7672]">
           <a href="#como-funciona" className="hover:text-white transition-colors">Como funciona</a>
@@ -49,9 +49,9 @@ const LandingPage = ({ onStartSimulation }) => {
         </div>
         <button 
           onClick={onStartSimulation}
-          className="bg-[#f59e0b] text-[#0a0a0b] font-bold px-5 py-2.5 rounded-lg text-sm hover:bg-[#fcd34d] transition-all hover:-translate-y-0.5"
+          className="bg-[#f59e0b] text-[#0a0a0b] font-bold px-3 md:px-5 py-2 md:py-2.5 rounded-lg text-[10px] md:text-sm hover:bg-[#fcd34d] transition-all hover:-translate-y-0.5"
         >
-          ▶ Ver demonstração
+          DEMO
         </button>
       </nav>
 
@@ -73,9 +73,9 @@ const LandingPage = ({ onStartSimulation }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-['Syne'] font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.07] tracking-[-0.04em] mb-6"
+            className="font-['Syne'] font-extrabold text-4xl md:text-7xl lg:text-8xl leading-[1.1] tracking-[-0.04em] mb-6"
           >
-            Seu restaurante entrega mais.<br />
+            Seu restaurante entrega mais.<br className="hidden md:block" />
             <span className="text-[#f59e0b] relative italic">
               Você gerencia menos.
               <span className="absolute bottom-1 left-0 right-0 h-1 md:h-2 bg-[#f59e0b]/50 rounded-full" />
@@ -95,17 +95,17 @@ const LandingPage = ({ onStartSimulation }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4"
           >
             <button 
               onClick={onStartSimulation}
-              className="group flex items-center gap-2.5 bg-[#f59e0b] text-[#0a0a0b] font-bold text-lg px-8 py-4 rounded-xl shadow-[0_0_32px_rgba(245,158,11,0.3)] hover:bg-[#fcd34d] hover:shadow-[0_0_48px_rgba(245,158,11,0.45)] transition-all hover:-translate-y-1"
+              className="group w-full md:w-auto flex items-center justify-center gap-2.5 bg-[#f59e0b] text-[#0a0a0b] font-bold text-base md:text-lg px-6 md:px-8 py-4 rounded-xl shadow-[0_0_32px_rgba(245,158,11,0.3)] hover:bg-[#fcd34d] hover:shadow-[0_0_48px_rgba(245,158,11,0.45)] transition-all hover:-translate-y-1"
             >
               <Play className="fill-[#0a0a0b]" size={20} />
-              Ver como funciona ao vivo
+              Demonstração ao vivo
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </button>
-            <a href="#recursos" className="flex items-center gap-2 border border-[#1e1e22] text-[#7a7672] px-6 py-4 rounded-xl hover:border-[#7a7672] hover:text-[#f0ede8] transition-all">
+            <a href="#recursos" className="w-full md:w-auto flex items-center justify-center gap-2 border border-[#1e1e22] text-[#7a7672] px-6 py-4 rounded-xl hover:border-[#7a7672] hover:text-[#f0ede8] transition-all text-sm md:text-base">
               Conhecer recursos <ArrowRight size={18} />
             </a>
           </motion.div>

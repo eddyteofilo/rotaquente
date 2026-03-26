@@ -11,7 +11,7 @@ const STAGES = [
 
 const DeliveryMap = ({ progress }) => {
   return (
-    <div className="relative w-full h-[320px] bg-black border border-neutral-800 rounded-sm overflow-hidden mb-12 shadow-2xl group">
+    <div className="relative w-full h-[240px] md:h-[320px] bg-black border border-neutral-800 rounded-sm overflow-hidden mb-8 md:mb-12 shadow-2xl group">
        {/* Stylized Grid Background */}
        <div className="absolute inset-0 opacity-[0.05]" style={{ 
           backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', 
@@ -138,7 +138,7 @@ export default function OrderTracking({ onBack, onComplete }) {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="max-w-3xl mx-auto py-12 px-6"
+      className="max-w-3xl mx-auto py-8 md:py-12 px-4 md:px-6"
     >
       <button 
         onClick={onBack}
@@ -148,10 +148,10 @@ export default function OrderTracking({ onBack, onComplete }) {
         VOLTAR AO CARDÁPIO
       </button>
 
-      <div className="mb-12 flex justify-between items-end">
-        <div>
-          <span className="text-[10px] text-accent font-bold tracking-[0.3em] uppercase mb-2 block">Pedido #8294</span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase leading-none">
+      <div className="mb-8 md:mb-12 flex justify-between items-end">
+        <div className="w-full">
+          <span className="text-[8px] md:text-[10px] text-accent font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase mb-2 block">Pedido #8294</span>
+          <h1 className="text-3xl md:text-6xl font-bold tracking-tighter uppercase leading-[0.9] md:leading-none">
             {isArrived ? 'Pedido' : 'Acompanhe seu'} <br />
             <span className="text-accent italic">{isArrived ? 'Entregue' : 'Pedido'}</span>
           </h1>
@@ -177,13 +177,13 @@ export default function OrderTracking({ onBack, onComplete }) {
             key="delivered-card"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="bg-accent p-12 rounded-sm mb-12 flex flex-col items-center text-center shadow-[0_20px_50px_rgba(249,115,22,0.3)]"
+            className="bg-accent p-6 md:p-12 rounded-sm mb-8 md:mb-12 flex flex-col items-center text-center shadow-[0_20px_50px_rgba(249,115,22,0.3)]"
           >
-             <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mb-6 shadow-xl text-accent">
-                <CheckCircle2 className="w-12 h-12" />
+             <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center mb-6 shadow-xl text-accent">
+                <CheckCircle2 className="w-8 h-8 md:w-12 md:h-12" />
              </div>
-             <h2 className="text-4xl font-black uppercase tracking-tighter text-white mb-4 italic leading-tight">BOM APETITE!</h2>
-             <p className="text-white/80 font-bold uppercase tracking-widest text-[10px] mb-8 max-w-xs mx-auto">
+             <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-white mb-4 italic leading-tight">BOM APETITE!</h2>
+             <p className="text-white/80 font-bold uppercase tracking-widest text-[8px] md:text-[10px] mb-8 max-w-xs mx-auto px-4">
                Você acabou de ver como o atendimento Rota Quente funciona. Que tal ter isso no seu negócio?
              </p>
              <div className="flex flex-col gap-3 w-full">
@@ -204,22 +204,22 @@ export default function OrderTracking({ onBack, onComplete }) {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12 md:mb-16">
         {STAGES.map((s, idx) => {
           const Icon = s.icon
           const isActive = idx <= stage
           const isCurrent = idx === stage
 
           return (
-            <div key={s.id} className={`flex flex-col gap-3 p-4 border rounded-sm transition-all duration-500 ${
+            <div key={s.id} className={`flex flex-col gap-2 md:gap-3 p-3 md:p-4 border rounded-sm transition-all duration-500 ${
               isCurrent ? 'bg-neutral-900 border-accent' :
               isActive ? 'bg-neutral-900 border-neutral-700 opacity-60' :
               'border-neutral-900 opacity-20'
             }`}>
-              <div className={`w-8 h-8 rounded-sm flex items-center justify-center ${isActive ? 'bg-accent text-white' : 'bg-neutral-800 text-neutral-500'}`}>
-                {isActive && idx < stage ? <CheckCircle2 className="w-4 h-4" /> : <Icon className="w-4 h-4" />}
+              <div className={`w-6 h-6 md:w-8 md:h-8 rounded-sm flex items-center justify-center ${isActive ? 'bg-accent text-white' : 'bg-neutral-800 text-neutral-500'}`}>
+                {isActive && idx < stage ? <CheckCircle2 className="w-3 h-3 md:w-4 md:h-4" /> : <Icon className="w-3 h-3 md:w-4 md:h-4" />}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest">{s.label}</span>
+              <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-widest truncate">{s.label}</span>
             </div>
           )
         })}

@@ -29,7 +29,7 @@ export default function ManagerSimulation({ orderItems, onComplete }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-6 backdrop-blur-xl">
+    <div className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-2 md:p-6 backdrop-blur-xl overflow-y-auto">
       <motion.div 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -50,30 +50,30 @@ export default function ManagerSimulation({ orderItems, onComplete }) {
         <div className="flex flex-col md:flex-row">
         {/* Sidebar Status */}
         <div className="w-full md:w-80 bg-black/40 border-b md:border-b-0 md:border-r border-neutral-800 p-8">
-          <div className="flex items-center gap-3 mb-12">
+          <div className="flex items-center gap-3 mb-8 md:mb-12">
              <div className="w-10 h-10 bg-accent rounded-sm flex items-center justify-center">
                 <Package className="w-6 h-6 text-white" />
              </div>
              <div>
-                <h2 className="text-lg font-bold uppercase tracking-tighter">Gestão <span className="text-accent">Eats</span></h2>
+                <h2 className="text-lg font-bold uppercase tracking-tighter">Rota <span className="text-accent">Quente</span></h2>
                 <p className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">Painel Administrativo</p>
              </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-3 md:flex md:flex-col gap-4 md:gap-8">
             {STEPS.map((step, idx) => {
               const Icon = step.icon
               const isActive = idx === currentStep
               const isPast = idx < currentStep
               
               return (
-                <div key={step.id} className={`flex items-start gap-4 transition-all duration-500 ${isActive ? 'opacity-100 scale-105' : 'opacity-40'}`}>
+                <div key={step.id} className={`flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4 transition-all duration-500 ${isActive ? 'opacity-100 scale-105' : 'opacity-40'}`}>
                    <div className={`p-2 rounded-sm border ${isActive || isPast ? 'bg-accent border-accent text-white' : 'border-neutral-800 text-neutral-600'}`}>
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-4 h-4 md:w-5 md:h-5" />
                    </div>
-                   <div>
-                      <h3 className="text-xs font-bold uppercase tracking-widest mb-1">{step.label}</h3>
-                      <p className="text-[9px] text-neutral-500 font-medium">
+                   <div className="text-center md:text-left">
+                      <h3 className="text-[8px] md:text-xs font-bold uppercase tracking-widest mb-1">{step.label}</h3>
+                      <p className="hidden md:block text-[9px] text-neutral-500 font-medium">
                         {isActive ? 'Ação pendente do gerente' : isPast ? 'Concluído às 14:45' : 'Aguardando fluxo'}
                       </p>
                    </div>
